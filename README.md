@@ -1,162 +1,215 @@
 # Bank-Customer-Churn-Prediction
 A Machine Learning project to predict bank customer churn using Logistic Regression, Random Forest, and Gradient Boosting, with a FastAPI backend and Streamlit frontend.
 
+# 🏦 Bank Customer Churn Prediction
 
+A Machine Learning project that predicts whether a bank customer is likely to leave the bank using customer data and classification algorithms.
 
+This project uses multiple Machine Learning models and provides a FastAPI backend with a Streamlit frontend for making predictions.
 
+## 🚀 Features
 
-Bank Customer Churn Prediction
-A machine learning project that predicts whether a bank customer is
-likely to leave (churn) based on customer information. It includes
-exploratory data analysis, preprocessing, model training and evaluation,
-a FastAPI prediction API, and a Streamlit user interface.
+- Exploratory Data Analysis (EDA)
+- Data preprocessing and feature scaling
+- Customer churn prediction
+- Multiple Machine Learning algorithms
+- Model evaluation and comparison
+- REST API using FastAPI
+- Interactive web interface using Streamlit
+- Model saving and loading using Joblib
 
-Features
-Explore the customer dataset and inspect summary statistics and
-missing values.
+## 🛠️ Technologies Used
 
-Visualize churn distribution and customer attributes with
-Matplotlib.
+- **Programming Language:** Python
+- **Data Analysis:** Pandas, NumPy
+- **Data Visualization:** Matplotlib
+- **Machine Learning:** Scikit-learn
+- **Backend:** FastAPI
+- **Frontend:** Streamlit
+- **API Server:** Uvicorn
+- **Model Serialization:** Joblib
 
-Preprocess categorical features and scale input features.
+## 🤖 Machine Learning Models
 
-Train classification models:
+This project uses the following classification algorithms:
 
-Logistic Regression
+1. Logistic Regression
+2. Random Forest Classifier
+3. Gradient Boosting Classifier
 
-Random Forest Classifier
+These models are used to predict customer churn based on customer information.
 
-Gradient Boosting Classifier
+## 📂 Project Structure
 
-Evaluate models using accuracy, precision, recall, F1-score, and a
-confusion matrix.
+```text
+Bank-Customer-Churn-Prediction/
+│
+├── app.py
+├── api.py
+├── explore.py
+├── EDA.py
+├── preprocessing.py
+├── train_logiticregretion.py.py
+├── train_random_forest.py
+├── train_gradient_boosting.py
+├── evaluate.py
+│
+├── churn_model.joblib
+├── random_forest_model.joblib
+├── gradient_boosting_model.joblib
+├── scaler.joblib
+│
+├── Bank Customer Churn Prediction.csv
+└── README.md
+```
 
-Serve predictions through a FastAPI endpoint.
+## ⚙️ Installation
 
-Enter customer details through a Streamlit interface and view the
-predicted churn risk.
+### 1. Clone the Repository
 
-Tech Stack
-Python
+```bash
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+```
 
-Pandas and NumPy
+Navigate to the project directory:
 
-Matplotlib
+```bash
+cd Bank-Customer-Churn-Prediction
+```
 
-scikit-learn
+### 2. Create a Virtual Environment
 
-Joblib
+```bash
+python -m venv venv
+```
 
-FastAPI
+Activate the environment on Windows:
 
-Streamlit
+```bash
+venv\Scripts\activate
+```
 
-Requests
+### 3. Install Dependencies
 
-Project Structure
-.
-├── app.py                         # Streamlit frontend
-├── api.py                         # FastAPI prediction API
-├── explore.py                     # Dataset overview and summary statistics
-├── EDA.py                         # Exploratory data analysis and charts
-├── preprocessing.py               # Encoding, train/test split, and scaling
-├── train_logiticregretion.py.py   # Train Logistic Regression
-├── train_random_forest.py         # Train Random Forest
-├── train_gradient_boosting.py     # Train Gradient Boosting
-├── evaluate.py                    # Evaluate saved models
-├── scaler.joblib                  # Saved feature scaler
-├── churn_model.joblib             # Saved Logistic Regression model
-├── random_forest_model.joblib     # Saved Random Forest model
-├── gradient_boosting_model.joblib # Saved Gradient Boosting model
-└── Bank Customer Churn Prediction.csv
-Setup
-Clone this repository and open the project folder.
-
-git clone <YOUR_REPOSITORY_URL>
-cd <YOUR_PROJECT_FOLDER>
-Create and activate a virtual environment (recommended).
-
-Windows
-
-python -m venv .venv
-.venv\Scripts\activate
-macOS/Linux
-
-python3 -m venv .venv
-source .venv/bin/activate
-Install the dependencies.
-
+```bash
 pip install pandas numpy matplotlib scikit-learn joblib fastapi uvicorn streamlit requests
-Run the Project
-Keep the terminal in the project folder.
+```
 
-1. Start the API
+## ▶️ How to Run the Project
+
+### Step 1: Start the FastAPI Backend
+
+Open a terminal in the project directory and run:
+
+```bash
 uvicorn api:app --reload
-The API runs locally at http://127.0.0.1:8000. Interactive API
-documentation is available at http://127.0.0.1:8000/docs.
+```
 
-2. Start the Streamlit interface
-Open a second terminal, activate the same virtual environment, and run:
+The API will be available at:
 
+```text
+http://127.0.0.1:8000
+```
+
+To explore the API documentation, visit:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+### Step 2: Start the Streamlit Frontend
+
+Open another terminal in the same project directory.
+
+Activate the virtual environment if needed, then run:
+
+```bash
 streamlit run app.py
-The Streamlit app sends customer data to the API at
-http://127.0.0.1:8000/predict.
+```
 
-Optional: Train the models
-Run these commands from the project directory:
+Streamlit will provide a local URL in the terminal. Open that URL in your browser to use the application.
 
+**Note:** Start the FastAPI backend before using the frontend. The API URL configured in `app.py` must match the address where the backend is running.
+
+## 🧠 Model Training
+
+To train the Logistic Regression model:
+
+```bash
 python train_logiticregretion.py.py
+```
+
+To train the Random Forest model:
+
+```bash
 python train_random_forest.py
+```
+
+To train the Gradient Boosting model:
+
+```bash
 python train_gradient_boosting.py
+```
+
 To evaluate the saved models:
 
+```bash
 python evaluate.py
-How It Works
-Load the bank customer churn CSV dataset.
+```
 
-Encode categorical data and create country indicator columns.
+Run these commands only after confirming that the required dataset, preprocessing code, and dependencies are available.
 
-Split the data into training and testing sets.
+## 📊 Model Evaluation
 
-Scale the features and save the scaler.
+Machine Learning models can be evaluated using the following metrics:
 
-Train classification models and save them with Joblib.
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- Confusion Matrix
 
-Send customer details from the Streamlit interface to the FastAPI
-endpoint.
+Actual model performance depends on the dataset, preprocessing, train-test split, and evaluation results.
 
-Return a churn prediction to the interface.
+## 🔄 Project Workflow
 
-Important Notes
-The model's predictions are estimates based on the training data,
-not guarantees about an individual customer.
+1. Load the customer churn dataset.
+2. Explore the data and identify useful features.
+3. Perform data preprocessing and encode categorical variables.
+4. Split the data into training and testing sets.
+5. Train classification models.
+6. Evaluate model performance.
+7. Save trained models using Joblib.
+8. Start the FastAPI backend.
+9. Use the Streamlit interface to submit customer information.
+10. Display the churn prediction returned by the API.
 
-Keep the CSV dataset and required .joblib files in the project
-directory when running the scripts.
+## 🎯 Project Objective
 
-Before publishing, verify that you have permission to redistribute
-the dataset and consider whether to include the dataset and
-serialized model files in GitHub. For larger files, use Git LFS or
-provide dataset instructions instead.
+The main objective of this project is to apply Machine Learning techniques to customer churn prediction and understand how data preprocessing, classification models, model evaluation, APIs, and frontend integration work together in an end-to-end project.
 
-Ensure the feature columns and preprocessing steps used by the API
-exactly match those used during training. Check model evaluation
-results before relying on predictions.
+## 🔮 Future Improvements
 
-This project is for learning and demonstration; it should not be
-used as the sole basis for financial or customer-retention
-decisions.
+- Improve model performance through hyperparameter tuning.
+- Add more evaluation metrics and model comparisons.
+- Improve the user interface.
+- Add input validation and error handling.
+- Create a requirements.txt file.
+- Deploy the application online.
+- Add automated tests.
 
-Future Improvements
-Add automated tests and input validation.
+## ⚠️ Disclaimer
 
-Compare model performance in a clearly reported results table.
+This project is intended for educational and demonstration purposes. Predictions are estimates based on the available dataset and should not be treated as guaranteed outcomes.
 
-Add a requirements.txt file for reproducible setup.
+## 👨‍💻 Author
 
-Improve error handling and configuration for the API URL.
+**Deepanshu **
 
-Deploy the API and Streamlit app so they can be accessed online.
+B.Tech CSE (AI & ML) Student
 
-Author
-Deepanshu
+Interested in Artificial Intelligence, Machine Learning, Deep Learning, and building AI-powered applications.
+
+---
+
+⭐ If you find this project useful, consider giving the repository a star!
